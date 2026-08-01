@@ -1,16 +1,16 @@
 #!name=SpotifyVip
-#!desc=解锁部分premium，音質不能設置為超高
+#!desc=解锁部分premium，音质不能设置为超高
 #!author=@vstaryw
 #!UpdateTime=2026-08-01
-#登錄後再打開腳本，重啟app等待腳本生效。1.去除播放廣告；2.歌手/專輯列表正常展示；3.去除隨機播放。
+#登录后再打开脚步，重启app等待脚本生效。1.去除播放广告；2.歌手/专辑列表正常展示；3.去除随机播放。
 
 [Script]
 
-spotify-qx-header = type=http-request, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-qx-header.js, timeout=60
+spotify-qx-header = type=http-request, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$, script-path=https://raw.githubusercontent.com/vstaryw/module-rules/refs/heads/main/js/spotify/spotify-qx-header.js, timeout=60
 
-spotify-proto = type=http-response, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, requires-body=true, binary-body-mode=true, max-size=-1, timeout=60
+spotify-proto = type=http-response, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$, script-path=https://raw.githubusercontent.com/vstaryw/module-rules/refs/heads/main/js/spotify/spotify-proto.js, requires-body=true, binary-body-mode=true, max-size=-1, timeout=60
 
-spotify-json = type=http-request, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, timeout=60
+spotify-json = type=http-request, pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/, script-path=https://raw.githubusercontent.com/vstaryw/module-rules/refs/heads/main/js/spotify/spotify-json.js, timeout=60
 
 [MITM]
 
